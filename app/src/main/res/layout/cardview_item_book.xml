@@ -8,13 +8,13 @@
     android:layout_height="190dp"
     xmlns:cardview="http://schemas.android.com/tools"
     android:layout_margin="5dp"
-    cardview:cardCornerRadius="4dp">
+    cardview:cardCornerRadius="4dp"
+    >
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/book_img_id"
@@ -38,4 +38,5 @@
 
 
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

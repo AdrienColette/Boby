@@ -2,39 +2,30 @@ package com.example.boby.View;
 
 public class Book {
 
-    private String Title;
-    private String Category;
-    private String Description;
-    private int Thumbnail;
+    private String title;
+    private String categories;
+    private String shortDescription;
+    private String thumbnailUrl;
 
     public Book() {
-
     }
 
-    public Book(String title,String category,String description, int thumbnail){
-        Title = title;
-        Category = category;
-        Description = description;
-        Thumbnail = thumbnail;
+    public Book(String title,String categories,String shortDescription, String thumbnailUrl){
+        this.title = title;
+        this.categories = categories;
+        this.shortDescription = shortDescription;
+        this.thumbnailUrl = thumbnailUrl;
     }
 
-    public String getTitle() {return Title;}
-    public String getCategory() {return Category;}
-    public String getDescription() {return Description;}
-    public int getThumbnail() {return Thumbnail;}
+    public String getTitle() {return title;}
+    public String getCategories() {return categories;}
+    public String getShortDescription() {return shortDescription;}
+    public String getThumbnailUrl() {return thumbnailUrl;}
 
-    public void setTitle(String title){
-        Title = title;
-    }
-    public void setCategory(String category){
-        Category = category;
-    }
-    public void setDescription(String description){
-        Description = description;
-    }
-    public void setThumbnail(int thumbnail){
-        Thumbnail = thumbnail;
-    }
+    public void setTitle(String title){this.title = title;}
+    public void setCategory(String categories){this.categories = categories;}
+    public void setShortDescription(String shortDescription){this.shortDescription = shortDescription;}
+    public void setThumbnailUrl(String thumbnailUrl){this.thumbnailUrl = thumbnailUrl; }
 
 
 }

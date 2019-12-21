@@ -18,8 +18,11 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.boby.Model.HomeViewModel;
 import com.example.boby.R;
+import com.example.boby.View.Book;
 import com.example.boby.Book_Activity;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,11 +40,16 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<Book> mData;
+    RequestOptions option;
+    private List<Book> listBook;
 
-    public RecyclerViewAdapter(Context mContext, List<Book> mData) {
+    public RecyclerViewAdapter(Context mContext, List<Book> listBook) {
         this.mContext = mContext;
-        this.mData = mData;
+        this.listBook = listBook;
+
+        // Request option Glide
+        option = new RequestOptions().centerCrop().placeholder(R.drawable.color_ic_launcher).error(R.drawable.color_ic_launcher);
+
     }
 
     @NonNull
@@ -56,8 +64,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
-        holder.tv_book_title.setText(mData.get(position).getTitle());
-        holder.img_book_thumbnail.setImageResource(mData.get(position).getThumbnail());
+        holder.tv_book_title.setText(listBook.get(position).getTitle());
+        Glide.with(mContext).load(listBook.get(position).getThumbnailUrl()).apply(option).into(holder.img_book_thumbnail);
+
+        // holder.img_book_thumbnail.setImageResource(mData.get(position).getThumbnailUrl());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -65,21 +75,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                 Intent intent = new Intent(mContext,Book_Activity.class);
 
-                intent.putExtra("Title",mData.get(position).getTitle());
-                intent.putExtra("Description",mData.get(position).getDescription());
-                intent.putExtra("Thumbnail",mData.get(position).getThumbnail());
+                intent.putExtra("Title",listBook.get(position).getTitle());
+                intent.putExtra("Description",listBook.get(position).getShortDescription());
+                intent.putExtra("Thumbnail",listBook.get(position).getThumbnailUrl());
 
                 mContext.startActivity(intent);
 
             }
         });
-
         // Set click Listener
     }
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return listBook.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
