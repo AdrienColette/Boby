@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">Musyc</string>
+    <string name="app_name">Bookix</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="navtitle1">Musiyc</string>
-    <string name="navtitle2">Collecteur de ressources</string>
+    <string name="navtitle1">Bookix</string>
+    <string name="navtitle2">Trouve un Bouquin, trouve ton Chemin !</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
+    <string name="menu_home">Book</string>
     <string name="menu_map">Map</string>
     <string name="menu_smile">About</string>
     <string name="title_activity_maps">Map</string>
